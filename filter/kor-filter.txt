@@ -1,0 +1,50 @@
+!
+! Title: kor-filter
+! Description: custom filter of AdGuard/ublock-origin
+! Homepage: https://github.com/finallycometolife
+! License: 
+! Last modified: 2026-08-17 14:30
+
+! Universal
+##[id^="div-gpt-ad"]:not([style^="width: 1px; height: 1px; absolute; left: -10000px; top: -"]):not([style="pointer-events: none; height: 1px; width: 0px; opacity: 0; visibility: hidden; bottom: 0px;"])
+##[class^="div-gpt-ad"]:not([style^="width: 1px; height: 1px; absolute; left: -10000px; top: -"])
+#%#//scriptlet('prevent-fetch','pagead2.googlesyndication.com')
+#%#//scriptlet('prevent-xhr','pagead2.googlesyndication.com')
+
+! naver.com
+m.naver.com##.comp_card:not(.comp_weather)
+m.naver.com##div.chf_feed_card > div.chf_feed_wrap
+naver.com##+js(set-cookie, NSCS, 2)
+@@*$removeparam=NaPm,from=msearch.shopping.naver.com|search.shopping.naver.com
+
+! google
+www.google.*##.MjjYud:not(:has([data-id="mosaic"])):has(a[href*=".pt/"])
+www.google.*##.MjjYud:not(:has([data-id="mosaic"])):has(a[href*=".hu/"])
+
+! artist.mnetplus
+artist.mnetplus.world##div[class*="CookieBottomSheet_contentWrapper__"]
+artist.mnetplus.world##div[class*="CookieCustomBottomSheet_dim__"]
+artist.mnetplus.world##div[class*="CookieCustomBottomSheet_container__"]
+artist.mnetplus.world##div[class*="CookieCustomBottomSheet_wrapper__"]
+artist.mnetplus.world##div[class*="CookieCustomBottomSheet_contentWrapper__"]
+
+artist.mnetplus.world##div[class*="CookieCustomBottomSheet_"]
+artist.mnetplus.world##html:style(overflow-x: hidden !important; overflow-y: auto !important; width: 100% !important; max-width: none !important; margin: 0 !important; padding: 0 !important; scrollbar-gutter: auto !important; overscroll-behavior: auto !important;)
+
+artist.mnetplus.world##body:style(overflow: visible !important; position: static !important; inset: auto !important; width: 100% !important; min-width: 100% !important; max-width: none !important; height: auto !important; margin: 0 !important; padding: 0 !important; touch-action: auto !important; overscroll-behavior: auto !important;)
+artist.mnetplus.world##div#__next:style(overflow: visible !important; position: static !important; width: 100% !important; min-width: 100% !important; max-width: none !important; height: auto !important; margin: 0 !important; padding: 0 !important;)
+artist.mnetplus.world##div#root:style(overflow: visible !important; position: static !important; width: 100% !important; min-width: 100% !important; max-width: none !important; height: auto !important; margin: 0 !important; padding: 0 !important;)
+artist.mnetplus.world##body > div:style(overflow: visible !important; width: 100% !important; min-width: 100% !important; max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important;)
+artist.mnetplus.world##main:style(overflow: visible !important; width: 100% !important; max-width: none !important; margin-right: 0 !important; padding-right: 0 !important;)
+artist.mnetplus.world##div[class*="Layout_"]:style(overflow: visible !important; max-width: none !important; margin-right: 0 !important; padding-right: 0 !important;)
+
+! jtbc news
+news.jtbc.co.kr##div.print-hide.MuiBox-root[class*="my-"]:has(> div.MuiBox-root)
+news.jtbc.co.kr##div.print-hide.MuiBox-root[class*="my-"]:has(> iframe[src])
+
+! theqoo.net
+! 공지 전체 차단 theqoo.net##ul.notice-list.on
+theqoo.net##li.event_notice.nofn
+theqoo.net##li.nofn:has(> a.list-link):nth-of-type(2)
+theqoo.net##li.nofn:has(> a.list-link):nth-of-type(3)
+theqoo.net##li.nofn:has(> a.list-link):nth-of-type(4)
