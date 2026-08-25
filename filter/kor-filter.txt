@@ -45,7 +45,9 @@ news.jtbc.co.kr##div.print-hide.MuiBox-root[class*="my-"]:has(> iframe[src])
 
 ! theqoo.net
 ! 공지 전체 차단 theqoo.net##ul.notice-list.on
-theqoo.net##li.event_notice.nofn
-theqoo.net##li.nofn:has(> a.list-link):nth-of-type(2)
-theqoo.net##li.nofn:has(> a.list-link):nth-of-type(3)
-theqoo.net##li.nofn:has(> a.list-link):nth-of-type(4)
+theqoo.net##ul.notice-list.hide_notice > li.event_notice.nofn
+theqoo.net##ul.notice-list.hide_notice > li.nofn:nth-child(2)
+theqoo.net##ul.notice-list.hide_notice > li.nofn:nth-child(3)
+theqoo.net##ul.notice-list.hide_notice > li.nofn:nth-child(4)
+theqoo.net##ul.notice-list > li.notice_expand:style(display:none!important)
+theqoo.net##ul.notice-list > li.nofn:has(> a.list-link[href^="/square/"])
