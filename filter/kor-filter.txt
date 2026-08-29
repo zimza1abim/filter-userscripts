@@ -4,7 +4,7 @@
 ! Description: custom filter of AdGuard/ublock-origin
 ! Homepage: https://github.com/finallycometolife
 ! License: 
-! Last modified: 2026-08-17 14:30
+! Last modified: 2026-08-30 06:25
 
 ! Universal
 ##[id^="div-gpt-ad"]:not([style^="width: 1px; height: 1px; absolute; left: -10000px; top: -"]):not([style="pointer-events: none; height: 1px; width: 0px; opacity: 0; visibility: hidden; bottom: 0px;"])
@@ -17,6 +17,9 @@ m.naver.com##.comp_card:not(.comp_weather)
 m.naver.com##div.chf_feed_card > div.chf_feed_wrap
 naver.com##+js(set-cookie, NSCS, 2)
 @@*$removeparam=NaPm,from=msearch.shopping.naver.com|search.shopping.naver.com
+! naver 연예탭
+m.naver.com##.wrap.id_ent .id_comp_common_feed.MM_video_sequential_play
+m.naver.com##.wrap.id_ent .id_comp_enter_schedule
 
 ! google
 www.google.*##.MjjYud:not(:has([data-id="mosaic"])):has(a[href*=".pt/"])
