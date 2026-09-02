@@ -2,7 +2,7 @@
 ! Title: kor-filter
 ! Version: 2026.09.02
 ! Description: custom filter of AdGuard/ublock-origin
-! Homepage: https://github.com/finallycometolife
+! Homepage: https://github.com/zimza1abim
 ! License: 
 ! Last modified: 2026-09-02 14:20
 
