@@ -57,3 +57,12 @@ theqoo.net##ul.notice-list > li.nofn:has(> a.list-link[href^="/square/"])
 
 ! dcinside.com
 m.dcinside.com##li.comment:has(> a.nick)
+
+! hiphople.com
+hiphople.com##.mobile_banner1
+
+! fmkorea.com
+m.fmkorea.com##div.list.swiper-wrapper:has(> div.item)
+m.fmkorea.com##.fmad_wrapper.fmad_naver_power_link
+m.fmkorea.com##.adpost:has(> a.apply)
+m.fmkorea.com###fmrecentvisited-recent-visits
