@@ -1,10 +1,10 @@
 !
 ! Title: kor-filter
-! Version: 2026.09.02
+! Version: 2026.09.09
 ! Description: custom filter of AdGuard/ublock-origin
 ! Homepage: https://github.com/zimza1abim
 ! License: 
-! Last modified: 2026-09-02 14:20
+! Last modified: 2026-09-09 19:18
 
 ! Universal
 ##[id^="div-gpt-ad"]:not([style^="width: 1px; height: 1px; absolute; left: -10000px; top: -"]):not([style="pointer-events: none; height: 1px; width: 0px; opacity: 0; visibility: hidden; bottom: 0px;"])
@@ -20,6 +20,8 @@ naver.com##+js(set-cookie, NSCS, 2)
 ! naver 연예탭
 m.naver.com##.wrap.id_ent .id_comp_common_feed.MM_video_sequential_play
 m.naver.com##.wrap.id_ent .id_comp_enter_schedule
+m.naver.com##.id_comp_banner_feed:has(> .comp_banner_feed)
+m.naver.com##.id_ent > .grid1_wrap > .brick-vowel:first-child > .id_comp_common_feed:nth-of-type(5):has(> .comp_common_feed)
 
 ! google
 www.google.*##.MjjYud:not(:has([data-id="mosaic"])):has(a[href*=".pt/"])
