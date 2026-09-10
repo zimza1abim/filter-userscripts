@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Universal Text Highlighter
 // @namespace    http://tampermonkey.net/
-// @version      3.0.0
+// @version      2026.09.10
 // @description  Safari/iOS/macOS 및 Chromium/Android/Desktop 공용 텍스트 하이라이터
 // @updateURL    https://raw.githubusercontent.com/zimza1abim/filter-userscripts/main/Userscripts/Universal%20Text%20Highlighter.js
 // @downloadURL  https://raw.githubusercontent.com/zimza1abim/filter-userscripts/main/Userscripts/Universal%20Text%20Highlighter.js 
