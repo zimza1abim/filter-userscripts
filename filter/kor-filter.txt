@@ -1,10 +1,10 @@
 !
 ! Title: kor-filter
-! Version: 2026.09.09
+! Version: 2026.09.10
 ! Description: custom filter of AdGuard/ublock-origin
 ! Homepage: https://github.com/zimza1abim
 ! License: 
-! Last modified: 2026-09-09 19:18
+! Last modified: 2026-09-10 16:25
 
 ! Universal
 ##[id^="div-gpt-ad"]:not([style^="width: 1px; height: 1px; absolute; left: -10000px; top: -"]):not([style="pointer-events: none; height: 1px; width: 0px; opacity: 0; visibility: hidden; bottom: 0px;"])
