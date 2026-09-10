@@ -1,0 +1,79 @@
+name: Update userscript metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Userscripts/Universal Text Highlighter.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: userscript-metadata-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Update metadata and push
+        shell: bash
+        env:
+          TZ: Asia/Seoul
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          # Start from the latest main each time so concurrent mobile edits survive.
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            python3 - <<'PY'
+          from datetime import datetime
+          from pathlib import Path
+          import re
+          from zoneinfo import ZoneInfo
+
+          path = Path('Userscripts/Universal Text Highlighter.js')
+          original = path.read_bytes()
+          updated = original
+          now = datetime.now(ZoneInfo('Asia/Seoul'))
+          header_end = original.find(b'// ==/UserScript==')
+          if header_end < 0:
+              raise SystemExit('Missing userscript metadata block')
+          header, count = re.subn(
+              rb'(?m)^(// @version[^\S\r\n]+)[^\r\n]*',
+              lambda match: match[1] + now.strftime('%Y.%m.%d').encode('ascii'),
+              original[:header_end],
+          )
+          if count != 1:
+              raise SystemExit(f'Expected exactly one @version header; got {count}')
+          updated = header + original[header_end:]
+          if updated != original:
+              path.write_bytes(updated)
+          PY
+
+            git add -- "Userscripts/Universal Text Highlighter.js"
+            if git diff --cached --quiet; then
+              echo 'Metadata is already current; no commit needed.'
+              exit 0
+            fi
+            git commit -m 'chore: update userscript version'
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push failed (attempt $attempt/5); retrying from latest main."
+            sleep 2
+          done
+          echo 'Could not push metadata after five attempts.' >&2
+          exit 1
