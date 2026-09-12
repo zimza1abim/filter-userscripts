@@ -22,6 +22,7 @@ m.naver.com##.wrap.id_ent .id_comp_common_feed.MM_video_sequential_play
 m.naver.com##.wrap.id_ent .id_comp_enter_schedule
 m.naver.com##.id_comp_banner_feed:has(> .comp_banner_feed)
 m.naver.com##.id_ent > .grid1_wrap > .brick-vowel:first-child > .id_comp_common_feed:nth-of-type(5):has(> .comp_common_feed)
+m.naver.com##.MM_FENDER.id_comp_common_feed.grid1
 
 ! google
 www.google.*##.MjjYud:not(:has([data-id="mosaic"])):has(a[href*=".pt/"])
